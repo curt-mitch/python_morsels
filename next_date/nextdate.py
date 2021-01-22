@@ -42,11 +42,11 @@ class NextDate:
         self.future_day = future_day
 
     def days_until(self):
-        return abs(self.future_day - date.today().weekday())
+        return (self.date() - date.today()).days
 
     def date(self):
-        delta = timedelta(days=self.future_day)
-        return (date.today() + delta)
+        today = date.today()
+        return today + timedelta((self.future_day - today.weekday()) % 7)
 
 
 class Weekday:
