@@ -38,7 +38,7 @@ class NaturalSortTests(unittest.TestCase):
         )
 
     # To test the Bonus part of this exercise, comment out the following line
-    @unittest.expectedFailure
+    # @unittest.expectedFailure
     def test_natural_key_function_and_key_argument(self):
         from sortutils import natural_key
         self.assertEqual(
