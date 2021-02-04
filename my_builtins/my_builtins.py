@@ -17,8 +17,6 @@ Traceback (most recent call last):
 TypeError: sum() can't sum strings [use ''.join(seq) instead]
 
 """
-from collections.abc import Collection, Iterator
-
 def len(obj):
     try:
         return obj.__len__()
