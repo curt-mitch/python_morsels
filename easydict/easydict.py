@@ -13,10 +13,10 @@ class EasyDict(object):
         return self.__dict__[key]
 
     def __eq__(self, other):
-        for key in self.__dict__.keys():
-            if self.__dict__[key] != other[key]:
-                return False
-        return True
+        if isinstance(other, self.__class__):
+            return self.__dict__ == other.__dict__
+        else:
+            return False
 
     def get(self, key, default=None):
         if key in self.__dict__.keys():
