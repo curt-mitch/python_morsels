@@ -31,8 +31,9 @@ import csv
 from collections import OrderedDict
 
 def csv_columns(csv_file):
-    file_obj = OrderedDict()
     reader = csv.reader(csv_file)
-    for row in (zip(*reader)):
-        file_obj[row[0]] = list(row[1:])
-    return file_obj
+    headers = next(reader)
+    return OrderedDict([
+        (header, column)
+        for header, *column in zip(headers, *reader)
+    ])
